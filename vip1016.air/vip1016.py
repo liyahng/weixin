@@ -28,36 +28,3 @@ if(poco(text = "首页").exists() == False):
 
 vip = Vip()
 login = Login('weixin')
-
-
-
-#会员--微信登录--退出
-thirdLoginRes = login.ThirdAuthLogin(2)
-try:
-    if(thirdLoginRes):
-        print('登录结果：',  thirdLoginRes)	
-        poco(text="开通会员").click()
-        res = vip.clickBuy("1个月16元原价20元")
-        assert_equal(res, True, '1个月16元原价20元-调起支付-展示金额正确16元')
-except:
-    print('error')
-    pass
-
-try:
-    vipRes = vip.Bydesc()
-    swipeStartIndex(2, 'down')
-    print('连续包月说明：', vipRes)
-    assert_equal(vipRes,True,'协议连接正确')
-    #退出登录--todo
-    quit(2,1)
-    login.logOut(2)   
-except:
-    print('error')
-    pass    
-
-
-
-
-    
-
-
