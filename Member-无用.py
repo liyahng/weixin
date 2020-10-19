@@ -98,13 +98,3 @@ class Member():
         if (poco(text  = "开通会员").exists or poco(text = "续费会员").exists() or poco(text = "登录").exists()):
             return True
         return False
-#用VIP账号--广告不出现--提高成功率~~~~    
-member = Member()
-# res = member.moduleShow()
-# print(res)
-
-# res = member.carousel()
-# print(res)
-
-res = member.loginModule()
-print(res)
